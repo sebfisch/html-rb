@@ -30,4 +30,9 @@ class HTMLTest < Minitest::Test
     assert_equal '<img>',
       HTML.fragment { img { text 'ignored' } }
   end
+
+  def test_attribute_escaping
+    assert_equal '<p id="&quot;&amp;&quot;"></p>',
+      HTML.fragment { p(id: '"&"') }
+  end
 end

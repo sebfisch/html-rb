@@ -97,7 +97,7 @@ simple <a href="HTML.html">HTML</a> document:</p>
 
 <pre class="ruby"><span class="ruby-constant">HTML</span>.<span class="ruby-identifier">doc</span>(<span class="ruby-identifier">lang</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;en&#39;</span>) {
   <span class="ruby-identifier">head</span> { <span class="ruby-identifier">title</span> { <span class="ruby-identifier">text</span> <span class="ruby-string">&#39;Hello&#39;</span> } }
-  <span class="ruby-identifier">body</span> { <span class="ruby-identifier">h1</span> { <span class="ruby-identifier">text</span> <span class="ruby-string">&#39;Hello &lt;HMTL&gt;&#39;</span> } }
+  <span class="ruby-identifier">body</span> { <span class="ruby-identifier">h1</span> { <span class="ruby-identifier">text</span> <span class="ruby-string">&#39;Hello &lt;HTML&gt;&#39;</span> } }
 }
 </pre>
 
@@ -114,7 +114,7 @@ simple <a href="HTML.html">HTML</a> document:</p>
 
 <p>Special characters are replaced with corresponding <a
 href="HTML.html">HTML</a> entities. For example, <code>text &#39;Hello
-&lt;HMTL&gt;&#39;</code> outputs <code>Hello &amp;lt;HTML&amp;gt;</code> in
+&lt;HTML&gt;&#39;</code> outputs <code>Hello &amp;lt;HTML&amp;gt;</code> in
 the corresponding <a href="HTML.html">HTML</a> document. To avoid automatic
 replacement, you can use <code>inline</code> instead of <code>text</code>.</p>
 
@@ -162,7 +162,7 @@ href="HTML.html">HTML</a> document using <code>inline</code>:</p>
 <pre class="ruby"><span class="ruby-identifier">inline</span> <span class="ruby-identifier">color_list</span> [<span class="ruby-string">&#39;Maroon&#39;</span>, <span class="ruby-string">&#39;Teal&#39;</span>, <span class="ruby-string">&#39;DarkSlateBlue&#39;</span>]
 </pre>
 
-<p>We can define HMTL templates by abstracting over <a
+<p>We can define <a href="HTML.html">HTML</a> templates by abstracting over <a
 href="HTML.html#method-c-doc">::doc</a> using a function.</p>
 
 <pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier">custom_page</span> <span class="ruby-identifier">title</span>, <span class="ruby-identifier">contents</span>
@@ -230,7 +230,7 @@ string <em>as is</em> use <code>inline</code> instead.</p>
 
 <pre class="ruby"><span class="ruby-constant">HTML</span>.<span class="ruby-identifier">doc</span>(<span class="ruby-identifier">lang</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;en&quot;</span>) {
   <span class="ruby-identifier">head</span> { <span class="ruby-identifier">title</span> { <span class="ruby-identifier">text</span> <span class="ruby-string">&quot;Hello&quot;</span> } }
-  <span class="ruby-identifier">body</span> { <span class="ruby-identifier">h1</span>(<span class="ruby-identifier">class</span><span class="ruby-operator">:</span> <span class="ruby-identifier">title</span>) { <span class="ruby-identifier">text</span> <span class="ruby-string">&quot;Hello &lt;HMTL&gt;&quot;</span> } }
+  <span class="ruby-identifier">body</span> { <span class="ruby-identifier">h1</span>(<span class="ruby-identifier">class</span><span class="ruby-operator">:</span> <span class="ruby-identifier">title</span>) { <span class="ruby-identifier">text</span> <span class="ruby-string">&quot;Hello &lt;HTML&gt;&quot;</span> } }
 }
 </pre>
           

@@ -5,7 +5,7 @@ require 'htmlentities'
 #
 #   HTML.doc(lang: 'en') {
 #     head { title { text 'Hello' } }
-#     body { h1 { text 'Hello <HMTL>' } }
+#     body { h1 { text 'Hello <HTML>' } }
 #   }
 #
 # This expression evaluates to the following string:
@@ -19,7 +19,7 @@ require 'htmlentities'
 #   '</html>'
 #
 # Special characters are replaced with corresponding HTML entities. For example,
-# <tt>text 'Hello <HMTL>'</tt> outputs <tt>Hello &lt;HTML&gt;</tt> in the
+# <tt>text 'Hello <HTML>'</tt> outputs <tt>Hello &lt;HTML&gt;</tt> in the
 # corresponding HTML document. To avoid automatic replacement, you can use
 # <tt>inline</tt> instead of <tt>text</tt>.
 #
@@ -60,7 +60,7 @@ require 'htmlentities'
 #
 #   inline color_list ['Maroon', 'Teal', 'DarkSlateBlue']
 #
-# We can define HMTL templates by abstracting over HTML.doc using a function.
+# We can define HTML templates by abstracting over HTML.doc using a function.
 #
 #   def custom_page title, contents
 #     HTML.doc(lang: 'en') {
@@ -86,7 +86,7 @@ class HTML
   # Example:
   #   HTML.doc(lang: "en") {
   #     head { title { text "Hello" } }
-  #     body { h1(class: title) { text "Hello <HMTL>" } }
+  #     body { h1(class: title) { text "Hello <HTML>" } }
   #   }
   #
   def self.doc attrs = {}, &children
@@ -135,14 +135,17 @@ class HTML
   end
 
   def open_elem name, attrs = {}
-    @doc << "<#{name}#{attrs.collect {|k,v|' '+k.to_s+'="'+v.to_s+'"'}.join}>"
+    quoted = { '"' => "&quot;", '&' => "&amp;" }
+    @doc << "<#{name}" << attrs.collect do |k,v|
+      ' '+k.to_s+'="'+v.to_s.chars.collect{|c|quoted[c]||c}.join+'"'
+    end.join << ">"
     return nil
   end
 
   def self.define_elem name
     define_method name do |attrs = {}, &children|
       if children.nil? then
-        elem name, attrs {}
+        elem(name, attrs) {}
       else
         elem name, attrs, &children
       end

@@ -174,8 +174,8 @@ class HTML
   @@elems.each { |name| self.define_elem name.to_s }
 
   @@unclosed_elems =
-    [:meta,:link,:base,:hr,:img,:area,:param,:embed,:source,:track,
-     :input,:keygen,:menuitem]
+    [:area,:base,:br,:col,:embed,:hr,:img,:input,:link,:meta,:param,
+     :source,:track,:wbr]
 
   @@unclosed_elems.each { |name| self.define_open_elem name.to_s }
 end

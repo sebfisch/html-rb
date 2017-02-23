@@ -156,7 +156,11 @@ visible inside blocks passed to <a href="HTML.html#method-c-doc">::doc</a>
 or <a href="HTML.html#method-c-fragment">::fragment</a>. Here we use <a
 href="HTML.html#method-c-fragment">::fragment</a>, which does not generate
 <code>&lt;html&gt;</code> tags and supports multiple elements next to each
-other as output.</p>
+other as output. We can include a list of colors in an <a
+href="HTML.html">HTML</a> document using <code>inline</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">inline</span> <span class="ruby-identifier">color_list</span> [<span class="ruby-string">&#39;Maroon&#39;</span>, <span class="ruby-string">&#39;Teal&#39;</span>, <span class="ruby-string">&#39;DarkSlateBlue&#39;</span>]
+</pre>
 
 <p>We can define HMTL templates by abstracting over <a
 href="HTML.html#method-c-doc">::doc</a> using a function.</p>
@@ -234,7 +238,7 @@ string <em>as is</em> use <code>inline</code> instead.</p>
 
           
           <div class="method-source-code" id="doc-source">
-            <pre><span class="ruby-comment"># File lib/html.rb, line 89</span>
+            <pre><span class="ruby-comment"># File lib/html.rb, line 92</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">doc</span> <span class="ruby-identifier">attrs</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>
   <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&lt;!doctype html&gt;&quot;</span> <span class="ruby-operator">&lt;&lt;</span>
             <span class="ruby-constant">HTML</span>.<span class="ruby-identifier">fragment</span> { <span class="ruby-identifier">html</span>(<span class="ruby-identifier">attrs</span>) { <span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>) } }
@@ -275,7 +279,7 @@ can consist of multiple elements.</p>
 
           
           <div class="method-source-code" id="fragment-source">
-            <pre><span class="ruby-comment"># File lib/html.rb, line 100</span>
+            <pre><span class="ruby-comment"># File lib/html.rb, line 103</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fragment</span> <span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>
   <span class="ruby-keyword">return</span> <span class="ruby-constant">HTML</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">fragment</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -308,7 +312,7 @@ can consist of multiple elements.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/html.rb, line 105</span>
+            <pre><span class="ruby-comment"># File lib/html.rb, line 108</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-ivar">@entities</span> = <span class="ruby-constant">HTMLEntities</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -349,7 +353,7 @@ can consist of multiple elements.</p>
 
           
           <div class="method-source-code" id="fragment-source">
-            <pre><span class="ruby-comment"># File lib/html.rb, line 110</span>
+            <pre><span class="ruby-comment"># File lib/html.rb, line 113</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">fragment</span> <span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>
   <span class="ruby-ivar">@doc</span> = <span class="ruby-string">&quot;&quot;</span>
   <span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>)

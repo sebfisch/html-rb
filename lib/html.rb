@@ -55,7 +55,10 @@ require 'htmlentities'
 # The methods used to describe HTML elements are only visible inside blocks
 # passed to HTML.doc or HTML.fragment. Here we use HTML.fragment, which does
 # not generate <tt><html></tt> tags and supports multiple elements next to each
-# other as output.
+# other as output. We can include a list of colors in an HTML document using
+# <tt>inline</tt>:
+#
+#   inline color_list ['Maroon', 'Teal', 'DarkSlateBlue']
 #
 # We can define HMTL templates by abstracting over HTML.doc using a function.
 #

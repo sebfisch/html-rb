@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class HTML - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-doc">::doc</a>
+    
+    <li ><a href="#method-c-fragment">::fragment</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-fragment">#fragment</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-HTML">
+  <h1 id="class-HTML" class="class">
+    class HTML
+  </h1>
+
+  <section class="description">
+    
+<p>This package lets you define <a href="HTML.html">HTML</a> documents (and
+fragments of documents) by using Ruby blocks. The following example shows a
+simple <a href="HTML.html">HTML</a> document:</p>
+
+<pre class="ruby"><span class="ruby-constant">HTML</span>.<span class="ruby-identifier">doc</span>(<span class="ruby-identifier">lang</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;en&#39;</span>) {
+  <span class="ruby-identifier">head</span> { <span class="ruby-identifier">title</span> { <span class="ruby-identifier">text</span> <span class="ruby-string">&#39;Hello&#39;</span> } }
+  <span class="ruby-identifier">body</span> { <span class="ruby-identifier">h1</span> { <span class="ruby-identifier">text</span> <span class="ruby-string">&#39;Hello &lt;HMTL&gt;&#39;</span> } }
+}
+</pre>
+
+<p>This expression evaluates to the following string:</p>
+
+<pre class="ruby"><span class="ruby-string">&#39;&lt;!doctype html&gt;&#39;</span> <span class="ruby-operator">+</span>
+<span class="ruby-string">&#39;&lt;html lang=&quot;en&quot;&gt;&#39;</span> <span class="ruby-operator">+</span>
+  <span class="ruby-string">&#39;&lt;head&gt;&lt;title&gt;Hello&lt;/title&gt;&lt;/head&gt;&#39;</span> <span class="ruby-operator">+</span>
+  <span class="ruby-string">&#39;&lt;body&gt;&#39;</span> <span class="ruby-operator">+</span>
+    <span class="ruby-string">&#39;&lt;h1&gt;Hello &amp;lt;HTML&amp;gt;&lt;/h1&gt;&#39;</span> <span class="ruby-operator">+</span>
+  <span class="ruby-string">&#39;&lt;/body&gt;&#39;</span> <span class="ruby-operator">+</span>
+<span class="ruby-string">&#39;&lt;/html&gt;&#39;</span>
+</pre>
+
+<p>Special characters are replaced with corresponding <a
+href="HTML.html">HTML</a> entities. For example, <code>text &#39;Hello
+&lt;HMTL&gt;&#39;</code> outputs <code>Hello &amp;lt;HTML&amp;gt;</code> in
+the corresponding <a href="HTML.html">HTML</a> document. To avoid automatic
+replacement, you can use <code>inline</code> instead of <code>text</code>.</p>
+
+<p>Like the <code>lang</code> attribute above, attributes to other tags are
+defined using named parameters. For example, here is a link:</p>
+
+<pre class="ruby"><span class="ruby-identifier">a</span>(<span class="ruby-identifier">href</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;http://rubygems.org/gems/html&#39;</span>) {
+  <span class="ruby-identifier">text</span> <span class="ruby-string">&#39;The HTML Gem&#39;</span>
+}
+</pre>
+
+<p><a href="HTML.html">HTML</a> fragments can be defined using loops or other
+Ruby constructs:</p>
+
+<pre class="ruby"><span class="ruby-identifier">colors</span> = [<span class="ruby-string">&#39;Maroon&#39;</span>, <span class="ruby-string">&#39;Teal&#39;</span>, <span class="ruby-string">&#39;DarkSlateBlue&#39;</span>]
+<span class="ruby-identifier">ul</span> {
+  <span class="ruby-identifier">colors</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">color</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">li</span>(<span class="ruby-identifier">style</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;color: &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">color</span>) { <span class="ruby-identifier">text</span> <span class="ruby-identifier">color</span> }
+  <span class="ruby-keyword">end</span>
+}
+</pre>
+
+<p>We can use <a href="HTML.html#method-c-fragment">::fragment</a> to abstract
+this definition into a function that accepts arbitrary colors.</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier">color_list</span> <span class="ruby-identifier">colors</span>
+  <span class="ruby-constant">HTML</span>.<span class="ruby-identifier">fragment</span> {
+    <span class="ruby-identifier">ul</span> {
+      <span class="ruby-identifier">colors</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">color</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">li</span>(<span class="ruby-identifier">style</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;color: &#39;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">color</span>) { <span class="ruby-identifier">text</span> <span class="ruby-identifier">color</span> }
+      <span class="ruby-keyword">end</span>
+    }
+  }
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The methods used to describe <a href="HTML.html">HTML</a> elements are only
+visible inside blocks passed to <a href="HTML.html#method-c-doc">::doc</a>
+or <a href="HTML.html#method-c-fragment">::fragment</a>. Here we use <a
+href="HTML.html#method-c-fragment">::fragment</a>, which does not generate
+<code>&lt;html&gt;</code> tags and supports multiple elements next to each
+other as output.</p>
+
+<p>We can define HMTL templates by abstracting over <a
+href="HTML.html#method-c-doc">::doc</a> using a function.</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier">custom_page</span> <span class="ruby-identifier">title</span>, <span class="ruby-identifier">contents</span>
+  <span class="ruby-constant">HTML</span>.<span class="ruby-identifier">doc</span>(<span class="ruby-identifier">lang</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;en&#39;</span>) {
+    <span class="ruby-identifier">head</span> { <span class="ruby-identifier">title</span> { <span class="ruby-identifier">text</span> <span class="ruby-identifier">title</span> } }
+    <span class="ruby-identifier">body</span> { <span class="ruby-identifier">inline</span> <span class="ruby-identifier">contents</span> }
+  }
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Now, the initial document above can be defined using this function:</p>
+
+<pre class="ruby"><span class="ruby-identifier">custom_page</span> <span class="ruby-string">&#39;Hello&#39;</span>, <span class="ruby-constant">HTML</span>.<span class="ruby-identifier">fragment</span> { <span class="ruby-identifier">h1</span> { <span class="ruby-identifier">text</span> <span class="ruby-string">&#39;Hello &lt;HTML&gt;&#39;</span> } }
+</pre>
+<dl class="rdoc-list note-list"><dt>Author
+<dd>
+<p>Sebastian Fischer &lt;mail@sebfisch.de&gt;</p>
+</dd><dt>License
+<dd>
+<p>MIT</p>
+</dd></dl>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-doc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">doc</span><span
+            class="method-args">(attrs = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates an <a href="HTML.html">HTML</a> document. Optional named parameters
+are used as attributes on the generated &lt;html&gt; tag. The children of
+the &lt;html&gt; element are specified in a block given to this method.
+Text can be inserted using <code>text</code> which automatically replaces
+special characters with <a href="HTML.html">HTML</a> entities. To include a
+string <em>as is</em> use <code>inline</code> instead.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-constant">HTML</span>.<span class="ruby-identifier">doc</span>(<span class="ruby-identifier">lang</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;en&quot;</span>) {
+  <span class="ruby-identifier">head</span> { <span class="ruby-identifier">title</span> { <span class="ruby-identifier">text</span> <span class="ruby-string">&quot;Hello&quot;</span> } }
+  <span class="ruby-identifier">body</span> { <span class="ruby-identifier">h1</span>(<span class="ruby-identifier">class</span><span class="ruby-operator">:</span> <span class="ruby-identifier">title</span>) { <span class="ruby-identifier">text</span> <span class="ruby-string">&quot;Hello &lt;HMTL&gt;&quot;</span> } }
+}
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="doc-source">
+            <pre><span class="ruby-comment"># File lib/html.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">doc</span> <span class="ruby-identifier">attrs</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&lt;!doctype html&gt;&quot;</span> <span class="ruby-operator">&lt;&lt;</span>
+            <span class="ruby-constant">HTML</span>.<span class="ruby-identifier">fragment</span> { <span class="ruby-identifier">html</span>(<span class="ruby-identifier">attrs</span>) { <span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>) } }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-fragment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fragment</span><span
+            class="method-args">(&children)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates an <a href="HTML.html">HTML</a> fragment. No
+<code>&lt;html&gt;</code> tags are generated. Unlike a document, a fragment
+can consist of multiple elements.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-constant">HTML</span>.<span class="ruby-identifier">fragment</span> { (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">3</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">li</span> { <span class="ruby-identifier">text</span> <span class="ruby-identifier">n</span> } } }
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="fragment-source">
+            <pre><span class="ruby-comment"># File lib/html.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fragment</span> <span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">HTML</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">fragment</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The constructor does not need to be called explicitly.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/html.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-ivar">@entities</span> = <span class="ruby-constant">HTMLEntities</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-fragment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fragment</span><span
+            class="method-args">(&children)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method does not need to be called explicitly.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fragment-source">
+            <pre><span class="ruby-comment"># File lib/html.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fragment</span> <span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>
+  <span class="ruby-ivar">@doc</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@doc</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

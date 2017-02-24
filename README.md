@@ -31,6 +31,7 @@ HTML.doc {
     pre {
       inline 'gem "html", :git => "git://github.com/sebfisch/html-rb.git"'
     }
+    footer { text "© 2017, Sebastian Fischer, MIT license" }
   }
 }
 ```
@@ -50,4 +51,4 @@ Just include this line in the `Gemfile`:
 
     gem "html", :git => "git://github.com/sebfisch/html-rb.git"
 
-© 2017, Sebastian Fischer, MIT
+© 2017, Sebastian Fischer, MIT license

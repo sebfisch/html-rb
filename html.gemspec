@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'html'
-  s.version     = '0.1.0'
-  s.date        = '2017-02-23'
+  s.version     = '0.1.1'
+  s.date        = '2017-02-24'
   s.summary     = 'HTML in Ruby with blocks'
   s.description = 'Simple HTML creating language'
   s.author      = 'Sebastian Fischer'

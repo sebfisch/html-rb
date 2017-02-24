@@ -172,7 +172,7 @@ class HTML
      :button,:select,:optgroup,:option,:textarea,
      :output,:progress,:meter,
      :script,:noscript,:canvas,:content,:decorator,:element,:shadow,:template,
-     :details,:summary,:dialog,:menu,:command]
+     :details,:summary,:dialog,:menu,:menuitem,:command]
 
   @@elems.each { |name| self.define_elem name.to_s }
 

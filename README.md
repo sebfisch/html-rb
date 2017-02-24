@@ -49,3 +49,5 @@ You can also use the latest version of this gem in your project.
 Just include this line in the `Gemfile`:
 
     gem "html", :git => "git://github.com/sebfisch/html-rb.git"
+
+© 2017, Sebastian Fischer, MIT

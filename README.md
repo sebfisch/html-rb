@@ -25,7 +25,7 @@ HTML.doc {
       inline 'gem install html-0.1.1.gem'
     }
     p {
-      text 'You can also use the latest version of this gem in you project. '
+      text 'You can also use the latest version of this gem in your project. '
       text 'Just include this line in the Gemfile:'
     }
     pre {

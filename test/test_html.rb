@@ -35,4 +35,9 @@ class HTMLTest < Minitest::Test
     assert_equal '<p id="&quot;&amp;&quot;"></p>',
       HTML.fragment { p(id: '"&"') }
   end
+
+  def test_multi_text
+    assert_equal '<p>Hello World!</p>',
+      HTML.fragment { p { text "Hello "; text "World!" } }
+  end
 end

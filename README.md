@@ -45,6 +45,7 @@ I have not yet published this gem to [RubyGems.org](http://rubygems.org/). You c
 
     gem install html-0.1.1.gem
 
-You can also use the latest version of this gem in your project by including this line in the `Gemfile`:
+You can also use the latest version of this gem in your project.
+Just include this line in the `Gemfile`:
 
     gem "html", :git => "git://github.com/sebfisch/html-rb.git"

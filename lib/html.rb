@@ -90,8 +90,10 @@ class HTML
   #   }
   #
   def self.doc attrs = {}, &children
-    return "<!doctype html>" <<
-              HTML.fragment { html(attrs) { instance_eval(&children) } }
+    return HTML.fragment {
+      inline "<!doctype html>"
+      html(attrs) { instance_eval(&children) }
+    }
   end
 
   # Creates an HTML fragment. No <tt><html></tt> tags are generated.

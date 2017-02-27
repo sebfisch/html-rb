@@ -240,8 +240,10 @@ string <em>as is</em> use <code>inline</code> instead.</p>
           <div class="method-source-code" id="doc-source">
             <pre><span class="ruby-comment"># File lib/html.rb, line 92</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">doc</span> <span class="ruby-identifier">attrs</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;&lt;!doctype html&gt;&quot;</span> <span class="ruby-operator">&lt;&lt;</span>
-            <span class="ruby-constant">HTML</span>.<span class="ruby-identifier">fragment</span> { <span class="ruby-identifier">html</span>(<span class="ruby-identifier">attrs</span>) { <span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>) } }
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">HTML</span>.<span class="ruby-identifier">fragment</span> {
+    <span class="ruby-identifier">inline</span> <span class="ruby-string">&quot;&lt;!doctype html&gt;&quot;</span>
+    <span class="ruby-identifier">html</span>(<span class="ruby-identifier">attrs</span>) { <span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>) }
+  }
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -279,7 +281,7 @@ can consist of multiple elements.</p>
 
           
           <div class="method-source-code" id="fragment-source">
-            <pre><span class="ruby-comment"># File lib/html.rb, line 103</span>
+            <pre><span class="ruby-comment"># File lib/html.rb, line 105</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fragment</span> <span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>
   <span class="ruby-keyword">return</span> <span class="ruby-constant">HTML</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">fragment</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -312,7 +314,7 @@ can consist of multiple elements.</p>
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/html.rb, line 108</span>
+            <pre><span class="ruby-comment"># File lib/html.rb, line 110</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
   <span class="ruby-ivar">@entities</span> = <span class="ruby-constant">HTMLEntities</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
@@ -353,7 +355,7 @@ can consist of multiple elements.</p>
 
           
           <div class="method-source-code" id="fragment-source">
-            <pre><span class="ruby-comment"># File lib/html.rb, line 113</span>
+            <pre><span class="ruby-comment"># File lib/html.rb, line 115</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">fragment</span> <span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>
   <span class="ruby-ivar">@doc</span> = <span class="ruby-string">&quot;&quot;</span>
   <span class="ruby-identifier">instance_eval</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">children</span>)

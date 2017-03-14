@@ -21,9 +21,9 @@ The `html` gem lets you define HMTL documents using Ruby blocks. See the [API do
 
 ## Installation
 
-I have not yet published this gem to [RubyGems.org](http://rubygems.org/). You can download [html-0.1.2.gem](https://raw.githubusercontent.com/sebfisch/html-rb/master/html-0.1.2.gem) and install it from the downloaded file:
+I have not yet published this gem to [RubyGems.org](http://rubygems.org/). You can download [html-0.1.3.gem](https://raw.githubusercontent.com/sebfisch/html-rb/master/html-0.1.3.gem) and install it from the downloaded file:
 
-    gem install html-0.1.2.gem
+    gem install html-0.1.3.gem
 
 You can also use the latest version of this gem in your project.
 Just include this line in the `Gemfile`:

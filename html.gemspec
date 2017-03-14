@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'html'
-  s.version     = '0.1.2'
+  s.version     = '0.1.3'
   s.date        = '2017-02-24'
   s.summary     = 'HTML in Ruby with Blocks'
   s.description = 'Simple HTML creating language'
@@ -9,5 +9,5 @@ Gem::Specification.new do |s|
   s.files       = ['lib/html.rb']
   s.homepage    = 'http://rubygems.org/gems/html'
   s.license     = 'MIT'
-  s.add_development_dependency 'htmlentities', '~> 4.3'
+  s.add_runtime_dependency 'htmlentities', '~> 4.3'
 end
